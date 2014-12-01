@@ -127,11 +127,27 @@ TODO: cache coherence - when there are multiple caches for multiple processors. 
 Well-defined software/hardware interface.
 
 \begin{itemize}
-	\item Functional definition - Operations and storage locations supported by hardware. With Intel's Ive Bridge chip-architecture came the operation RdRand for instance, which is an operation that returns a hardware-generated random number.
+	\item Functional definition - Operations and storage locations supported by hardware. With Intel's Ivy Bridge chip-architecture came the operation RdRand for instance, which is an operation that returns a hardware-generated random number.
 	\item Documentation of how to use the instructions (see ABI below?).
 \end{itemize}
 
 (TODO: application binary interface (ABI). I believe this is contained within ISA. This defines the calling conventions for the architecture - for instance how system calls are carried out)
+
+\section*{10 - draw a figure showing how the memory hierarchy of a modern computer with the processor(s), cache levels, memory and storage}
+
+\begin{center}
+\includegraphics[width=5.0cm]{images/cpu_cache_structure.png}
+\includegraphics[width=5.0cm]{images/CPU-Cache-System.png}
+
+
+
+Simplified overviews of CPU, registers, caches and memory
+\end{center}
+
+\emph{L1} is often local for each CPU, whereas \emph{L2} and/or \emph{L3} are/is often shared between multiple CPUs.
+
+\emph{Extremely} important: When you draw the storage, remember to draw it as a cylinder\footnote{due to historical reasons}!
+
 
 \section*{C - interrupts!}
 TODO: fuck fuck fuck
