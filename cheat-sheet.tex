@@ -149,6 +149,33 @@ Simplified overviews of CPU, registers, caches and memory
 \emph{Extremely} important: When you draw the storage, remember to draw it as a cylinder\footnote{due to historical reasons}!
 
 
+\section*{16 - Explain how multiple processes can share the same CPU}
+This is possible by context switching between the execution of the processes or threads (this is called \textbf{multitasking}). The context switch stores the current state of the process, so that the execution of it can be resumed at a later point in time.
+
+
+
+
+This is most likely implemented with a preemptive scheduler on PCs, as programs would otherwise be able to hold on to the CPU. So the scheduler decides when to switch between processes.
+
+\begin{center}
+\includegraphics[width=5.0cm]{images/220px-Multithreaded_process.png}
+
+
+
+A process with two threads - run on a single CPU
+\end{center}
+The above can also be performed between several processes, and thus a single CPU can execute several processes ``at the same time'' (at least it might appear so to the user).
+
+\section*{17 - Explain how multiple processes can share a set of CPUs}
+With multiple CPUs one can, instead of switching out a running process to let another run, simply run the other process on another CPU.
+
+Given the individual process address space and individual call stack for each thread, multiple processes are able to run in parallel on several CPUs without affecting the states of one another.
+
+\section*{Keyword - Context switching}
+Stores the state of the registers, as the rest will remain untouched by other processes (
+TODO: mention individual 1) process address space and 2) call stack for each thread)
+
+
 \section*{C - interrupts!}
 TODO: fuck fuck fuck
 
