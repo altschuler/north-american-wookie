@@ -70,8 +70,8 @@ Primarily optimizing either for (run) time or for space.
 \subsection*{How they can occur}
 \begin{itemize}
 	\item In the C standard library, one can call \texttt{malloc()} to get a pointer to the memory of the requested size.
- If one deletes the pointers to the allocated data, without freeing the memory block before, this is a memory leak. 
- 
+ If one deletes the pointers to the allocated data, without freeing the memory block before, this is a memory leak.
+
  	\item Memory fragmentation
 \end{itemize}
 
@@ -84,7 +84,7 @@ Primarily optimizing either for (run) time or for space.
 
 
 \section*{5 - Explain the diff. between communicating with an I/O device using memory mapped I/O or I/O-instructions}
-TODO: !!! 
+TODO: !!!
 
 \section*{6 - Explain processor, register, program counter, cache, I/O device, instruction set architecture}
 
@@ -148,6 +148,7 @@ Simplified overviews of CPU, registers, caches and memory
 
 \emph{Extremely} important: When you draw the storage, remember to draw it as a cylinder\footnote{due to historical reasons}!
 
+\input{o12}
 
 \section*{16 - Explain how multiple processes can share the same CPU}
 This is possible by context switching between the execution of the processes or threads (this is called \textbf{multitasking}). The context switch stores the current state of the process, so that the execution of it can be resumed at a later point in time.
