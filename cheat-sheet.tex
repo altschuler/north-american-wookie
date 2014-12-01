@@ -39,7 +39,7 @@
 
 \begin{document}
 
-\section{Compiler optimization}
+\section*{1 - Compiler optimization}
 \begin{enumerate}
 	\item Loop-optimization: Move loop-invariant variables outside the loop.
 	\item Dead code removal.
@@ -50,9 +50,8 @@
 Primarily optimizing either for (run) time or for space.
 
 
-\section{Derp - ``you can use standard tools''}
 
-\section{Explain components in compilation toolchain}
+\section*{3 - Explain components in compilation toolchain}
 \begin{enumerate}
 	\item Source file(s) are handled by the preprocessor, which turn them into \textbf{translation units}:
 	\begin{itemize}
@@ -67,7 +66,7 @@ Primarily optimizing either for (run) time or for space.
 \textbf{Remember} that there are both \emph{static} and \emph{dynamic} libraries. Static are linked into the executable, whereas dynamic can be changed (updated) with time (dynamic linked).
 
 
-\section{Memory leaks in systems with dynamic memory management}
+\section*{4 - Memory leaks in systems with dynamic memory management}
 \subsection*{How they can occur}
 \begin{itemize}
 	\item In the C standard library, one can call \texttt{malloc()} to get a pointer to the memory of the requested size.
@@ -84,10 +83,10 @@ Primarily optimizing either for (run) time or for space.
 \end{itemize}
 
 
-\section{Explain the diff. between communicating with an I/O device using memory mapped I/O or I/O-instructions}
+\section*{5 - Explain the diff. between communicating with an I/O device using memory mapped I/O or I/O-instructions}
 TODO: !!! 
 
-\section{Explain processor, register, program counter, cache, I/O device, instruction set architecture}
+\section*{6 - Explain processor, register, program counter, cache, I/O device, instruction set architecture}
 
 \begin{center}
 \includegraphics[width=8.0cm]{images/330px-Von_Neumann_Architecture.png}
