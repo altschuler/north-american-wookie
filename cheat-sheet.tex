@@ -189,7 +189,68 @@ TODO: (memory areas) How are they laid out? In what order Where in memory?
 
 
 
+\section*{20}
+Given reference literature, you can write down in text and in your own words definitions or explanations of the following concepts:
 
+\begin{description}
+\item[Process Address space]
+  The actual address space taken allocated to a process in a virtual address space.
+
+\item[Interprocess communication]
+  Can be done in numerous ways: files, message queues, semaphore, message passing, shared memory, pipes (IO), and more.
+
+\item[System call]
+  A program's request to the operating system to do an OS tasks
+
+\item[Daemon]
+  A process running in the background (``invisible''), can be a watchdog-like program, auto-updater, anti-virus, etc.
+
+\item[Thread]
+  Smallest ``unit'' known by the scheduler. Owned by a process. Threads of the same process share memory.
+
+\item[Critical section]
+  A piece of code that needs mutual exclusion. A critical \texttt{region} consists of multiple of these.
+
+\item[Mutual exclusion]
+  Ya kno dis
+
+\item[Semaphore]
+  P = request/take coconut, V = put coconut
+
+\item[Mutex]
+  Binary semaphore, a simple lock/unlock mechanism
+
+\item[Monitor]
+  A construct (class, object, whatever) with mutual exclusion of methods
+
+\item[Condition variable]
+  In a Java monitor it's the \texttt{wait} and \texttt{notify} and \texttt{notifyAll}. It's the mechanism by which a monitor can wait for a condition to be true without blocking the monitor.
+
+\item[Message passing]
+  Communication between objects in the same process or between different processes by use of so-called messages. Can be asynchronous or synchronous. Invoking a method on an object in Java is an example of message passing, and sending a signal from one process to another in unix with \texttt{kill} is another.
+
+\item[Kernel mode]
+  One of the two modes of operation of the CPU. In kernel mode all code executed is \textit{trusted} so it can access all memory, signal all processes, execute all instructions, etc.
+
+\item[User mode]
+  One of the two modes of operation of the CPU. In user mode code is not assumed to be \textit{trusted} so it is restricted to a certain memory space and possibly a limited subset of CPU instructions.
+
+\item[Pre-emtiveness]
+  A preemption happens when a process is suspended \textit{during} its execution, resulting in a \textit{context switch}, usually done by the scheduler. The intent is that the process will be resumed later.
+
+\item[Race condition]
+  Happens when two processes attempts to access/mutate a shared resources at the same time, such that unexpected behavior or corruption can occur.
+
+\item[Scheduling algorithm]
+  Algorithm that chooses which processes (or threads) to execute.
+
+\item[System time]
+  The computer's time ``counter''
+
+\item[Device driver]
+  Program that controls a hardware device and provides an interface to it (usually through the bus)
+
+\end{description}
 
 
 
