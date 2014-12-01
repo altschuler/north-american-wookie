@@ -109,6 +109,7 @@ Operates in \textbf{cycles}:
 	\item Decode instruction (there are different \emph{addressing modes})
 	\item Execute - Control Unit and ALU (Arithmetic/Logic Unit)
 \end{itemize}
+(This is the so-called three-stage pipeline. There is also the modern superscalar CPU (see page 21 in DJ Tanenbaum's book))
 
 \textbf{Word size} - Modern PCs use a word-size of 64 bits. Embedded systems using microcontrollers often have a smaller word size (modern ones have down to 8 bit)
 
@@ -132,6 +133,29 @@ Well-defined software/hardware interface.
 \end{itemize}
 
 (TODO: application binary interface (ABI). I believe this is contained within ISA. This defines the calling conventions for the architecture - for instance how system calls are carried out)
+
+\section*{8 - Explain how interrupts are handled in the processor}
+When the processor gets interrupted, it
+
+\begin{enumerate}
+	\item Halts execution of the current thread
+	\item Stores the current state (TODO: the book says that this ranges from storing only the IP-register, to storing \emph{all} registers of the thread).
+	\item Executes interrupt handler
+	\item Resumes thread execution
+\end{enumerate}
+
+Two types of interrupts:
+\begin{itemize}	
+	\item \textbf{Hardware} - when a disk-read, keyboard input, clock (timing), scanned document is ready. Sent via the Bus.
+	An Interrupt Controller handles this and issues interrupt for CPU.
+	(if there are several HW-interrupts sent simultaneously, the ones with lower priorities keep sending the signal)
+	
+	\item \textbf{Software} - Either when an `interrupt instruction' is executed, or when an exception is thrown. (exceptions can be from other processors as well!)
+	
+\end{itemize}
+
+The halting of execution and storing of state is much more complex on modern, superscalar CPUs (see page 21 in DJ Tanenbaum's)
+
 
 \section*{10 - draw a figure showing how the memory hierarchy of a modern computer with the processor(s), cache levels, memory and storage}
 
