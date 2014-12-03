@@ -1,6 +1,3 @@
-\section{12 - Cache performance}
-``You can demonstrate with pseudo code how the memory access pattern of a program can greatly influence cache performance.''
-
 By avoiding cache misses (thus increasing cache hits) we can speed up memory lookups. When the CPU fetches memory it will fetch nearby elements into the cache as well because they are typically used together. If we fetch memory from scattered places its unfriendly for the cache.
 
 For instance, iterating a two-dimensional array:

@@ -48,10 +48,12 @@
 \begin{document}
 
 \maketitle
-% \tableofcontents
-% \pagebreak
+\tableofcontents
+\pagebreak
 
-\section*{1 - Compiler optimization}
+\section{Compiler optimization}
+\emph{1. You can list and describe three source code transformations the compiler can perform to achieve higher performance.}
+
 \begin{enumerate}
 	\item Loop-optimization: Move loop-invariant variables outside the loop.
 	\item Dead code removal.
@@ -62,8 +64,14 @@
 Primarily optimizing either for (run) time or for space.
 
 
+\section{Programming methodologies}
+\emph{2. You can apply standard programming methodologies and tools such as test-driven development, build systems, debuggers.}
+TODO
 
-\section*{3 - Explain components in compilation toolchain}
+
+\section{Compilation toolchain}
+\emph{3. You can explain the role of each component of a compilation toolchain used in system programming and how the components interact.}
+
 \begin{enumerate}
 	\item Source file(s) are handled by the preprocessor, which turn them into \textbf{translation units}:
 	\begin{itemize}
@@ -78,8 +86,10 @@ Primarily optimizing either for (run) time or for space.
 \textbf{Remember} that there are both \emph{static} and \emph{dynamic} libraries. Static are linked into the executable, whereas dynamic can be changed (updated) with time (dynamic linked).
 
 
-\section*{4 - Memory leaks in systems with dynamic memory management}
-\subsection*{How they can occur}
+\section{Memory leaks}
+\emph{4. You can explain in your own words how memory leaks can occur in systems with dynamic memory management and give examples of two approaches to prevent them.}
+
+\subsection{How they can occur}
 \begin{itemize}
 	\item In the C standard library, one can call \texttt{malloc()} to get a pointer to the memory of the requested size.
  If one deletes the pointers to the allocated data, without freeing the memory block before, this is a memory leak.
@@ -88,26 +98,29 @@ Primarily optimizing either for (run) time or for space.
 \end{itemize}
 
 
-\subsection*{2 strategies to prevent them}
+\subsection{Strategies to prevent them}
 \begin{itemize}
 	\item Garbage collection. Detect data objects that cannot be used by the program in the future, and free the resources occupied by these.
 	\item TODO:
 \end{itemize}
 
 
-\section*{5 - Explain the diff. between communicating with an I/O device using memory mapped I/O or I/O-instructions}
-TODO: !!!
-
-\section*{6 - Explain processor, register, program counter, cache, I/O device, instruction set architecture}
-
-\begin{center}
-\includegraphics[width=8.0cm]{images/330px-Von_Neumann_Architecture.png}
-
-Von Neumann Architecture
-\end{center}
+\section{Memory mapped I/O vs. I/O-instructions}
+\emph{5. You can explain the difference between communicating with an I/O device using memory mapped I/O or I/O instructions.}
+TODO
 
 
-\subsection*{Processor}
+\section{CPU Terminology}
+\emph{6. You can explain in your own words the following terms: processor, register, program counter, cache, I/O device, instruction set architecture.}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm]{images/330px-Von_Neumann_Architecture.png}
+  \caption{Von Neumann Architecture}
+\end{figure}
+
+
+\subsection{Processor}
 There are different kinds of processors, the most widely used are
 \begin{itemize}
 	\item General purpose central processing units (CPUs, used in PCs)
@@ -125,18 +138,18 @@ Operates in \textbf{cycles}:
 
 \textbf{Word size} - Modern PCs use a word-size of 64 bits. Embedded systems using microcontrollers often have a smaller word size (modern ones have down to 8 bit)
 
-\subsection*{Register}
+\subsection{Register}
 Lulz
 
-\subsection*{Program counter / instruction pointer (PC/IP)}
+\subsection{Program counter / instruction pointer (PC/IP)}
 So... yeah.
 
-\subsection*{Cache}
+\subsection{Cache}
 TODO: cache coherence - when there are multiple caches for multiple processors. These must be kept consistent.
 
-\subsection*{I/O device}
+\subsection{I/O device}
 
-\subsection*{Instruction set architecture (ISA)}
+\subsection{Instruction set architecture (ISA)}
 Well-defined software/hardware interface.
 
 \begin{itemize}
@@ -146,9 +159,16 @@ Well-defined software/hardware interface.
 
 (TODO: application binary interface (ABI). I believe this is contained within ISA. This defines the calling conventions for the architecture - for instance how system calls are carried out)
 
-\section*{8 - Explain how interrupts are handled in the processor}
-When the processor gets interrupted, it
 
+\section{Basic processor functionality}
+\emph{7. You can explain the basic workings of a processor and outline the steps involved in executing an instruction.}
+TODO
+
+
+\section{Interrupts}
+\emph{8. You can explain in your own words how interrupts are handled in the processor.}
+
+When the processor gets interrupted, it
 \begin{enumerate}
 	\item Halts execution of the current thread
 	\item Stores the current state (TODO: the book says that this ranges from storing only the IP-register, to storing \emph{all} registers of the thread).
@@ -169,13 +189,17 @@ Two types of interrupts:
 The halting of execution and storing of state is much more complex on modern, superscalar CPUs (see page 21 in DJ Tanenbaum's)
 
 
-\section*{10 - draw a figure showing how the memory hierarchy of a modern computer with the processor(s), cache levels, memory and storage}
+\section{Assembly example}
+\emph{9. You can show with assembly code how the stack pointer, or a general purpose register, can be used to perform indirect addressing of data structures.}
+TODO
+
+
+\section{Memory hierarchy}
+\emph{10. You can draw a figure showing how the memory hierarchy of a modern computer with the processor(s), cache levels, memory and storage}
 
 \begin{center}
 \includegraphics[width=5.0cm]{images/cpu_cache_structure.png}
 \includegraphics[width=5.0cm]{images/CPU-Cache-System.png}
-
-
 
 Simplified overviews of CPU, registers, caches and memory
 \end{center}
@@ -184,11 +208,33 @@ Simplified overviews of CPU, registers, caches and memory
 
 \emph{Extremely} important: When you draw the storage, remember to draw it as a cylinder\footnote{due to historical reasons}!
 
+
+\section{Interrupt handler}
+\emph{11. You can write pseudocode showing how to implement an interrupt handler.}
+TODO
+
+
+\section{Cache performance}
+\emph{12. You can demonstrate with pseudo code how the memory access pattern of a program can greatly influence cache performance.}
 \input{o12}
 
-\section*{15 - Kernel Types}
 
-\subsection*{Monolithic}
+\section{Privilege levels}
+\emph{13. You can explain the concept of privilege levels and show three examples of operations which should be permitted only at the most privileged level.}
+TODO
+
+
+\section{Message passing}
+\emph{14. You can explain in your own words and in text and with your own commented examples, how message passing can be used to coordinate processes.}
+TODO
+
+
+\section{Kernel types}
+\emph{15. You can explain in your own words the differences between a monolithic operat-
+ing system, a micro-kernel operating system, and an exo-kernel based operating
+system.}
+
+\subsection{Monolithic}
 \begin{itemize}
 \item Entire operating system is working in kernel mode.
 \item Defines a high-level virtual interface over computer hardware.
@@ -196,7 +242,7 @@ Simplified overviews of CPU, registers, caches and memory
 \item Device drivers can be added to the kernel as modules.
 \end{itemize}
 
-\subsection*{Microkernel}
+\subsection{Microkernel}
 \begin{itemize}
 \item Near-minimum amount of software that can provide the mechanisms needed to implement an OS.
 \item Mechanisms include low-level address space management, thread management, and inter-process communication (IPC).
@@ -211,7 +257,7 @@ Simplified overviews of CPU, registers, caches and memory
 \end{figure}
 \footnotetext{\url{https://en.wikipedia.org/wiki/Microkernel\#mediaviewer/File:OS-structure.svg}}
 
-\subsection*{Exokernel}
+\subsection{Exokernel}
 \begin{itemize}
 \item Force as few abstractions as possible on developers, enabling them to make as many decisions as possible about hardware abstractions.
 
@@ -228,48 +274,40 @@ Simplified overviews of CPU, registers, caches and memory
 \footnotetext{\url{https://en.wikipedia.org/wiki/Exokernel\#mediaviewer/File:Exokernel\_revised(english).png}}
 
 
-
-\section*{16 - Explain how multiple processes can share the same CPU}
+\section{Uni-processor system}
+\emph{16. You can explain in your own words how multiple processes can share the same CPU.}
 This is possible by context switching between the execution of the processes or threads (this is called \textbf{multitasking}). The context switch stores the current state of the process, so that the execution of it can be resumed at a later point in time.
-
-
-
 
 This is most likely implemented with a preemptive scheduler on PCs, as programs would otherwise be able to hold on to the CPU. So the scheduler decides when to switch between processes.
 
 \begin{center}
 \includegraphics[width=5.0cm]{images/220px-Multithreaded_process.png}
 
-
-
 A process with two threads - run on a single CPU
 \end{center}
+
 The above can also be performed between several processes, and thus a single CPU can execute several processes ``at the same time'' (at least it might appear so to the user).
 
-\section*{17 - Explain how multiple processes can share a set of CPUs}
+
+\section{Multi-processor system}
+\emph{17. You can explain in your own words how multiple processes can share a set of CPUs.}
 With multiple CPUs one can, instead of switching out a running process to let another run, simply run the other process on another CPU.
 
 Given the individual process address space and individual call stack for each thread, multiple processes are able to run in parallel on several CPUs without affecting the states of one another.
 
-\section*{Keyword - Context switching}
-Stores the state of the registers, as the rest will remain untouched by other processes (
-TODO: mention individual 1) process address space and 2) call stack for each thread)
+
+\section{Thread states}
+\emph{18. Assume a thread can be in three different states: running, blocked, ready. You can draw a diagram of your own showing the transitions between states and explain in text and in your own words what each transition means.}
 
 
-\section*{C - interrupts!}
-TODO: fuck fuck fuck
+\section{Operating system stack}
+\emph{19. Given a schematic overview of the software stack of an operating system, you can label, in the diagram, key system parts. You can also explain in your own words and in text the purpose of those parts.}
+TODO
 
 
-\section*{C - storage classes (week 2)}
-TODO: auto, extern, static and register!
-
-
-\section*{Memory layout (week3)}
-TODO: (memory areas) How are they laid out? In what order Where in memory?
-
-
-
-\section*{20}
+\section{Key concepts}
+\emph{20. Given reference literature, you can write down in text and in your own words definitions or explanations of the following concepts: Process; Address space; Interprocess communication; System call; Daemon; Thread; Critical section; Mutual exclusion; Semaphore; Mutex; Monitor; Condition variable; Message passing; Kernel mode; User mode; Pre-emtiveness; Race condition; Scheduling algorithm; System time; Device driver.}
+\emph{24. Given reference literature, you can write down in text and in your own words definitions or explanations of the following concepts: Virtual machine; Virtual machine monitor; Atomic action; Swapping; Virtual memory; Paging; File system; File attribute.}
 Given reference literature, you can write down in text and in your own words definitions or explanations of the following concepts:
 
 \begin{description}
@@ -330,31 +368,64 @@ Given reference literature, you can write down in text and in your own words def
 \item[Device driver]
   Program that controls a hardware device and provides an interface to it (usually through the bus)
 
+\item[Virtual machine]
+  TODO
+
+\item[Virtual machine monitor]
+  TODO
+
+\item[Atomic action]
+  TODO
+
+\item[Swapping]
+  TODO
+
+\item[Virtual memory]
+  TODO
+
+\item[Paging]
+  TODO
+
+\item[File system]
+  TODO
+
+\item[File attribute]
+  TODO
+
 \end{description}
 
 
+\section{Race conditions}
+\emph{21. You can explain in your own words, in text and with your own examples how race conditions can occur in systems with multiple processors or systems with interrupts.}
+TODO
 
 
+\section{Mutual exclusion}
+\emph{22. You can explain in your own words, in text and with your own commented examples, how busy wait methods can achieve mutual exclusion in systems with multiple CPUs.}
+\emph{23. You can explain in your own words, in text and with your own commented exam- ples, how blocking methods can achieve mutual exclusion in systems with multiple CPUs.}
+
+\subsection{Busy wait}
+TODO
+
+\subsection{Blocking}
+TODO
 
 
+\section*{Context switching}
+Stores the state of the registers, as the rest will remain untouched by other processes (
+TODO: mention individual 1) process address space and 2) call stack for each thread)
 
 
+\section*{C - interrupts!}
+TODO: fuck fuck fuck
 
 
+\section*{C - storage classes (week 2)}
+TODO: auto, extern, static and register!
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+\section*{Memory layout (week3)}
+TODO: (memory areas) How are they laid out? In what order Where in memory?
 
 
 \end{document}
