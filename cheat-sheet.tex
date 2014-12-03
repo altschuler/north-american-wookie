@@ -1,3 +1,8 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
 \documentclass{article}
 
 \usepackage{fullpage}
@@ -36,10 +41,15 @@
 \setcounter{secnumdepth}{3} % only chapter and sections will be numbered
 \setcounter{tocdepth}{3}    % entries down to \subsubsections in the TOC
 
+\title{Operating System Notes}
+\author{December 2014}
+\date{}
 
 \begin{document}
 
-\textbf{Simon, du er en fucking abe - Mvh Pattyttap}
+\maketitle
+% \tableofcontents
+% \pagebreak
 
 \section*{1 - Compiler optimization}
 \begin{enumerate}
@@ -147,13 +157,13 @@ When the processor gets interrupted, it
 \end{enumerate}
 
 Two types of interrupts:
-\begin{itemize}	
+\begin{itemize}
 	\item \textbf{Hardware} - when a disk-read, keyboard input, clock (timing), scanned document is ready. Sent via the Bus.
 	An Interrupt Controller handles this and issues interrupt for CPU.
 	(if there are several HW-interrupts sent simultaneously, the ones with lower priorities keep sending the signal)
-	
+
 	\item \textbf{Software} - Either when an `interrupt instruction' is executed, or when an exception is thrown. (exceptions can be from other processors as well!)
-	
+
 \end{itemize}
 
 The halting of execution and storing of state is much more complex on modern, superscalar CPUs (see page 21 in DJ Tanenbaum's)
