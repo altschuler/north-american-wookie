@@ -6,3 +6,4 @@ auto
 *.toc
 cheat-sheet.pdf
 cn/
+/flycheck_cheat-sheet.tex

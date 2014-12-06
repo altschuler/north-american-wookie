@@ -375,7 +375,6 @@ Given reference literature, you can write down in text and in your own words def
 \item[Semaphore]
   P = request/take coconut, V = put coconut. Semaphore invariant: $\#P \le \#V + s$.
 
-
 \item[Mutex]
   Binary semaphore, a simple lock/unlock mechanism
 
@@ -410,10 +409,15 @@ Given reference literature, you can write down in text and in your own words def
   Program that controls a hardware device and provides an interface to it (usually through the bus)
 
 \item[Virtual machine]
-  TODO
+  One machine providing multiple virtual machines (VM) to the next layer, such that multiple users can have their own, closed environment, while sharing the same resources.
 
 \item[Virtual machine monitor]
-  TODO
+  A hypervisor or virtual machine monitor (VMM) is a piece of computer software, firmware or hardware that creates and runs virtual machines.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{images/hypervisor}
+  \caption{Type-1 and type-2 hypervisors}
+\end{figure}
 
 \item[Atomic action]
   An instruction or set of instructions that cannot be interleaved by other processes, thus making it always completely done, or not started.
