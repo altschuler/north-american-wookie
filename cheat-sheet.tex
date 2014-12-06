@@ -104,12 +104,21 @@ TODO
 \begin{itemize}
 	\item Garbage collection. Detect data objects that cannot be used by the program in the future, and free the resources occupied by these.
 	\item Always add free after a malloc and then put code that uses the variable in between.
-	\begin{align*}
-	&int *p = (int*) malloc ( sizeof(int) * n );\\
-	&Put\; code\; here..\\
-	&free (p);
-	\end{align*}
-	
+	\begin{cpp}
+int *p = (int*) malloc ( sizeof(int) * n );
+//Put code here..
+free (p);
+	\end{cpp}
+	\item Never use allocated pointer for doing stuff. Instead use a copy and use that in code. Copy the pointer...
+	\begin{cpp}
+int *p_allocated = (int*) malloc ( sizeof(int) * n );
+int *p_copy = p_allocated;
+// do your stuff with p_copy, not with p_allocated!
+// e.g.:
+while (n--) { *p_copy++ = n; }
+...
+free (p_allocated);
+	\end{cpp}
 \end{itemize}
 
 
