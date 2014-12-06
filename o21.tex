@@ -1,0 +1,25 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "cheat-sheet"
+%%% End:
+
+Situations where two or more processes are reading or writing some shared data and the final result depends on who runs precisely when, are called \emph{race conditions}. Remember, processors are completely \emph{independent}.
+
+A \emph{critical race} occurs when the order in which internal variables are changed determines the eventual state that the state machine will end up in.
+
+A \emph{non-critical race} occurs when the order in which internal variables are changed does not alter the eventual state.
+
+Race conditions creates \emph{Indeterministic} behavior, where the resulting state can not be determined.
+
+Recreating a bug caused by a race condition might take some extreme set of parameters and are therefore very hard to find.
+
+If shared variables, operations need to be \emph{synchronized}.
+
+\subsection{Example}
+\begin{align*}
+\texttt{int x = 0;} \\ \\
+&\textbf{P}_1 &\textbf{P}_2 \\
+&\texttt{x = x + 1} &\texttt{x = 3}
+\end{align*}
+
+The final value of \texttt{x} can be 0 or 3.
