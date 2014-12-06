@@ -305,7 +305,42 @@ Given the individual process address space and individual call stack for each th
 
 \section{Operating system stack}
 \emph{19. Given a schematic overview of the software stack of an operating system, you can label, in the diagram, key system parts. You can also explain in your own words and in text the purpose of those parts.}
-TODO
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm]{images/os-stack.png}
+  \caption{Taken from an Interwebs article called ``An Architecture for In-Vehicle Infotainment Systems''}
+\end{figure}
+
+HMI: Human-machine interface. Patrick is going to ignore this part, as this is not really shown in any other diagrams.
+
+\subsection*{Application layer}
+This is where people play The Sims(TODO: trademark symbol) and use MS Office, among other wonderful things.
+
+Usually these rely on middleware instead of communicating directly with the OS. It is however entirely possible to communicate directly with the OS from this layer.
+
+\subsection*{Middleware layer}
+From Wikipedia: ``Middleware is a computer software that provides services to software applications beyond those available from the operating system. It can be described as ``software glue''. Middleware makes it easier for software developers to perform communication and input/output, so they can focus on the specific purpose of their application.''
+
+\emph{OpenGL} and \emph{Miles Sound System} are examples of middleware.
+
+\subsection*{OS layer}
+The OS manages control and resources.
+
+\subsection*{Hardware layer}
+ZE MEMORY, PROCESSOR(S), STORAGE, I/O-DEVICES, AND SHIT.
+
+Hidden away under several layers of abstraction, and developers cannot interact with this directly (except for in Exokernels).
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm]{images/windows-nt-architecture.png}
+  \includegraphics[width=8.0cm]{images/mac-os-x-architecture.png}
+  \caption{The architectures of Windows NT and Mac OS X}
+\end{figure}
+
 
 
 \section{Key concepts}
