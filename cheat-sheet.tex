@@ -59,7 +59,7 @@
 \begin{enumerate}
 	\item Loop-optimization: Move loop-invariant variables outside the loop.
 	\item Dead code removal.
-	\item Subexpression elimination: (x + y) / 3.0 - (x + y)
+	\item Subexpression elimination: $(x + y) / 3.0 - (x + y)\rightarrow temp = y+x;\;\; temp/3.0-temp$
 	\item Replacing instructions with more efficient ones. For instance, x = x * 2 is likely faster performed by bitshifting
 \end{enumerate}
 
@@ -103,7 +103,13 @@ TODO
 \subsection{Strategies to prevent them}
 \begin{itemize}
 	\item Garbage collection. Detect data objects that cannot be used by the program in the future, and free the resources occupied by these.
-	\item TODO:
+	\item Always add free after a malloc and then put code that uses the variable in between.
+	\begin{align*}
+	&int *p = (int*) malloc ( sizeof(int) * n );\\
+	&Put\; code\; here..\\
+	&free (p);
+	\end{align*}
+	
 \end{itemize}
 
 
@@ -338,6 +344,7 @@ Given reference literature, you can write down in text and in your own words def
 
 \item[Semaphore]
   P = request/take coconut, V = put coconut. Semaphore invariant: $\#P \le \#V + s$.
+
 
 \item[Mutex]
   Binary semaphore, a simple lock/unlock mechanism
