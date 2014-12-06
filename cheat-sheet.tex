@@ -333,7 +333,7 @@ Given reference literature, you can write down in text and in your own words def
   Ya kno dis
 
 \item[Semaphore]
-  P = request/take coconut, V = put coconut
+  P = request/take coconut, V = put coconut. Semaphore invariant: #P <= #V + s.
 
 \item[Mutex]
   Binary semaphore, a simple lock/unlock mechanism
@@ -342,7 +342,7 @@ Given reference literature, you can write down in text and in your own words def
   A construct (class, object, whatever) with mutual exclusion of methods
 
 \item[Condition variable]
-  In a Java monitor it's the \texttt{wait} and \texttt{notify} and \texttt{notifyAll}. It's the mechanism by which a monitor can wait for a condition to be true without blocking the monitor.
+  A condition that a monitor can await to be signalled. In a Java monitor it's done via \texttt{wait} and \texttt{notify} and \texttt{notifyAll}. It's the mechanism by which a monitor can wait for a condition to be true without blocking the monitor.
 
 \item[Message passing]
   Communication between objects in the same process or between different processes by use of so-called messages. Can be asynchronous or synchronous. Invoking a method on an object in Java is an example of message passing, and sending a signal from one process to another in unix with \texttt{kill} is another.
@@ -375,16 +375,16 @@ Given reference literature, you can write down in text and in your own words def
   TODO
 
 \item[Atomic action]
-  TODO
+  An instruction or set of instructions that cannot be interleaved by other processes, thus making it always completely done, or not started.
 
 \item[Swapping]
-  TODO
+  Memory management technique where a process is fully loaded into RAM to be run, and put back onto disk when idled.
 
 \item[Virtual memory]
-  TODO
+  Memory management technique in which a process is assigned \emph{virtual memory addresses} which are mapped by the operating system into physical memory locations, which could be either in RAM or on disk via paging. Allows programs to be run without being fully loaded into memory.
 
 \item[Paging]
-  TODO
+  Virtual memory is divided into fixed sized (512 bytes - 64KB) chunks called pages which are mapped to physical memory chunks (generally) of the same size. The MMU (memory management unit) translates addresses via a table.
 
 \item[File system]
   TODO
