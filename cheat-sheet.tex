@@ -424,7 +424,13 @@ TODO: fuck fuck fuck
 
 
 \section*{C - storage classes (week 2)}
-TODO: auto, extern, static and register!
+A storage class defines the scope and accesibility of defined variables.
+\begin{description}
+\item[auto] Default. Automatically freed when leaving block in which it's defined.
+\item[extern] Defined outside current translation unit. Resolution of the variable or function is done at link-time.
+\item[static] The visibility of the variable is restricted to current translation unit. Note that \texttt{static} can mean a bunch of things when used elsewhere.
+\item[register] Prevents taking the address of a variable. Useful for instance to prevent accidentally returning a pointer to a function parameter. Does \textbf{not} mean that the variable is stored in a register, the compiler will decide on that.
+\end{description}
 
 
 \section*{Memory layout (week3)}
