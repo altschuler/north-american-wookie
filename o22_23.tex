@@ -1,0 +1,37 @@
+% 22. You can explain in your own words, in text and with your own commented examples, how busy wait methods can achieve mutual exclusion in systems with multiple CPUs.
+% 23. You can explain in your own words, in text and with your own commented examples, how blocking methods can achieve mutual exclusion in systems with multiple CPUs.
+
+\subsection{Busy wait}
+Uses the full resource of the thread to stay alive and continuously check for the critical section lock to become available.
+
+Pseudo:
+\begin{cpp}
+int locked = 0;
+
+void mutex_enter() {
+  while (locked) { /* noop */ }
+  locked = 1;
+}
+
+void mutex_exit() {
+  locked = 0;
+}
+\end{cpp}
+
+Usage
+\begin{cpp}
+mutex_enter();
+/* critical section */
+mutex_exit();
+\end{cpp}
+
+It is worth noting that one can also use the \texttt{TSL} (Test Set and Lock) or \texttt{CAS} (Compare And Swap) instructions to implement this.
+
+\subsection{Blocking}
+Puts the process to sleep and wakes it up from another process. Semaphores and monitors can do this. TODO: more?
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "cheat-sheet"
+%%% End:
