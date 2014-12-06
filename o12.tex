@@ -1,3 +1,8 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "cheat-sheet"
+%%% End:
+
 By avoiding cache misses (thus increasing cache hits) we can speed up memory lookups. When the CPU fetches memory it will fetch nearby elements into the cache as well because they are typically used together. If we fetch memory from scattered places its unfriendly for the cache.
 
 For instance, iterating a two-dimensional array:
@@ -19,8 +24,3 @@ for col = 0 to 1:
 This will result in accesses in this order: \texttt{nums[0][0] (1), nums[1][0] (3), nums[0][1] (2), nums[1][1] (4)}. If the CPU fetches and caches one address ahead then the first memory access fetches \texttt{nums[0][0] (1)} and caches \texttt{nums[0][1] (2)} but the next fetch is actually \texttt{nums[0][0] (3)} which results in a cache miss.
 
 We can get two cache hits and two memory lookups instead of four memory lookups if we iterate row-wise instead!
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "cheat-sheet"
-%%% End:
