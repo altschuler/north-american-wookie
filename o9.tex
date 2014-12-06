@@ -1,0 +1,46 @@
+% 9. You can show with assembly code how the stack pointer, or a general purpose register, can be used to perform indirect addressing of data structures.
+
+Consider
+\begin{lstlisting}[language=C]
+struct person {
+  double height;
+  int    age;
+}
+
+struct person turing = (struct person*)malloc(sizeof(struct person));
+turing->age = 40;
+turing->name = "Alan Turing";
+\end{lstlisting}
+
+We can now use indirect addressing to access the fields of the struct:
+
+\begin{lstlisting}[language={[x86masm]Assembler}]
+; eax now holds the address of `turing'
+mov turing, %eax
+
+; mov 1.0 to the first field of the struct (the double literal is not valid assembly)
+mov $1.0, (%eax)
+
+; mov 2 to the second field which is offset by 8 bytes (size of the double)
+mov $2, 8(%eax)
+\end{lstlisting}
+
+
+Generally:
+\begin{description}
+\item[Indirect addressing:] \texttt{(\%eax)}
+\item[Base pointer addressing:] \texttt{4(\%eax)}
+\end{description}
+
+The general form of memory address references is this:
+
+\texttt{ADDRESS\_OR\_OFFSET(\%BASE\_OR\_OFFSET,\%INDEX,MULTIPLIER)}
+
+\texttt{FINAL ADDRESS = ADDRESS\_OR\_OFFSET + \%BASE\_OR\_OFFSET + MULTIPLIER * \%INDEX}
+
+See Bartlett chapter 3
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "cheat-sheet"
+%%% End:
