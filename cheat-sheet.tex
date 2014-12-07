@@ -181,11 +181,38 @@ Operates in \textbf{cycles}:
 \subsection{Register}
 A processor register is a small amount of storage available as part of a digital processor, such as a CPU. Such registers are (typically) addressed by mechanisms other than main memory and can be accessed faster. 
 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm]{images/x86-registers}
+  \caption{An overview of the registers (x86): }
+\end{figure}
+
+
+
 \subsection{Program counter / instruction pointer (PC/IP)}
-A rocessor register that indicates where a computer is in its program sequence.
+A processor register that indicates where a computer is in its program sequence.
 
 \subsection{Cache}
-TODO: cache coherence - when there are multiple caches for multiple processors. These must be kept consistent.
+{\bf General:} A CPU cache is a cache used by the central processing unit (CPU) of a computer to reduce the average time to access data from the main memory. The cache is a smaller, faster memory which stores copies of the data from frequently used main memory locations.
+
+In modern CPU'S there are typically two layers of caches, L1 and L2. L1 cache is inside the CPU and feeds decoded instructions into the CPUs execution process. L2 cache holds several megabytes of recently used memory words. It is slower than L1, due to its size. Accessing L1 takes 1 cycle and acessing L2 takes 1 or 2 cycles.
+
+On multicore chips, the placement of the L2 cache can vary. A single L2 cache can be shared by all the cores (intel).  This requires a more complicated cache controller. Another design is to gice every core  its own L2 cache (AMD). This is difficult to keep consistent.
+
+\subsubsection{Cache cohorence}
+A protocol for managing the caches of a multiprocessor system so that no data is lost or overwritten before the data is transferred from a cache to the target memory. 
+
+
+When multiple processors with separate caches share a common memory, it is necessary to keep the caches in a state of coherence by ensuring that any shared operand that is changed in any cache is changed throughout the entire system. This is done in either of two ways: 
+
+through a directory-based or a snooping system. In a directory-based system, the data being shared is placed in a common directory that maintains the coherence between caches. The directory acts as a filter through which the processor must ask permission to load an entry from the primary memory to its cache. When an entry is changed the directory either updates or invalidates the other caches with that entry. In a snooping system, all caches on the bus monitor (or snoop) the bus to determine if they have a copy of the block of data that is requested on the bus. Every cache has a copy of the sharing status of every block of physical memory it has.
+Cache misses and memory traffic due to shared data blocks limit the performance of parallel computing in multiprocessor computers or systems. Cache coherence aims to solve the problems associated with sharing data.
+
+
+
+
+
 
 \subsection{I/O device}
 
