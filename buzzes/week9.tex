@@ -1,0 +1,18 @@
+\subsection*{Week 9 - Advanced Memory Management}
+\subsubsection*{How can the total memory usage of all processes exceed the memory available in the system?}
+Processes in the states \emph{blocked} and \emph{ready} are suspended, and having their memory swapped to the storage (often a HDD) will allow for a total memory usage exceeding the actual memory in the system.
+
+
+
+\subsubsection*{A lot of programs allocate a lot of memory that is never used. Is there anything the operating system can do about it?}
+By allocating lazily (i.e. only physically allocating when the program references the memory, or tries to write to it?).
+
+(Virtual Memory achieves this.)
+
+
+\subsubsection*{How can paging make memory allocation more efficient?}
+Simon says that it is because the memory is merged into large chunks. So the OS simply allocates such a chunk instead of allocating exactly the requested amount of memory.
+
+
+\subsubsection*{You can use more memory than the amount of physical memory. How can this be?}
+Virtual memory, where some of the virtual pages point to \emph{storage} and not \emph{memory}.
