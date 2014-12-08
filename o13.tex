@@ -1,3 +1,8 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "cheat-sheet"
+%%% End:
+
 % 13. You can explain the concept of privilege levels and show three examples of operations which should be permitted only at the most privileged level.
 Processes run under privilege level from 0 (most privileged) through 3 (least privileged). The assigned level controls what resources the process has access to, such as memory, IO, special instructions. Kernel code runs in ring 0 and general user programs run in level 3, all levels are not always used (for instance 1 and 2 are unused in Linux). Level 0 is essentially kernel mode. Current privilege level is stored in the \texttt{CPL} register.
 
@@ -10,8 +15,3 @@ Operations only permitted in level 0 (many of these are just system calls)
 \item File writing
 \item File reading
 \end{itemize}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "cheat-sheet"
-%%% End:
