@@ -151,7 +151,7 @@ A translation unit consists of
 
 
 \subsection{Strategies to prevent them}
-\begin{itemize}
+\begin{itemize}$
 	\item Garbage collection. Detect data objects that cannot be used by the program in the future, and free the resources occupied by these.
 	\item Always add free after a malloc and then put code that uses the variable in between.
 	\begin{cpp}
@@ -555,5 +555,9 @@ An OS is a \textbf{control program}:
 \end{itemize}
 
 ... Although some systems do not even have these features.
+
+
+\section*{Buzz}
+\input{buzz.tex}
 
 \end{document}
