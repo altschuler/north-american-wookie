@@ -1,0 +1,34 @@
+\subsection*{Week 12 - Virtual Machines}
+\subsubsection*{Why virtual machines and virtual machine monitors?}
+
+\begin{itemize}
+	\item You have plenty of installations...
+	\begin{itemize}
+		\item Servers
+		\item Operating systems versions	
+	\end{itemize}
+	
+	\item ... but not much hardware
+	\begin{itemize}
+		\item Hardware == Energy == Money
+		\item Many installations are idle
+	\end{itemize}
+	\item Usage scenario: Web hosting
+	\begin{itemize}
+		\item Fewer machines to manage
+		\item Hopefully not less reliable or less secure	
+	\end{itemize}
+	\item Hypervisor can control a number of guest operating systems
+\end{itemize}
+
+\subsubsection*{Migration}
+``One advantage of using virtual machines is that you can move a virtual machine from one hardware machine to another. How could one do that?''
+
+Image that you have two machines; \emph{Machine A} and \emph{Machine B}. The user using is running \emph{Machine A}, but the overall system decides that the virtual machine should be moved to \emph{Machine B} (probably due to \emph{Machine A} is failing).
+
+The job is to make the transition as smooth as possible for the user. This is achieved by copying all of the memory from \emph{Machine A} to \emph{Machine B}. But this is not done in a random manner:
+\begin{enumerate}
+	\item Firstly, the memory of the processes \emph{not} used by the user is copied from \emph{Machine A} to \emph{Machine B}
+	\item When all but the critical memory has been copied (after a some seconds), the process will shortly freeze as the last data it is moved from \emph{Machine A} to \emph{Machine B}
+	\item Now the user's entire virtual machine is running on \emph{Machine B}
+\end{enumerate}
