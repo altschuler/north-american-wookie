@@ -24,8 +24,6 @@ If shared variables, operations need to be \emph{synchronized}.
 
 Due to the various possible interleavings, the final value of \texttt{x} can be 1, 3 or 4.
 
-
-
 \subsection{Example with atomic statements}
 \begin{align*}
 \texttt{int x = 0;} \\ \\
@@ -34,5 +32,3 @@ Due to the various possible interleavings, the final value of \texttt{x} can be 
 \end{align*}
 
 As the two processes can only be executed sequentially now, the possible final values of \texttt{x} are 3 or 4.
-
-
