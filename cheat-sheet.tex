@@ -157,16 +157,17 @@ A translation unit consists of
 
 \subsection{Strategies to prevent them}
 \begin{itemize}
-	\item Garbage collection. Detect data objects that cannot be used by the program in the future, and free the resources occupied by these.
-	\item Always add free after a malloc and then put code that uses the variable in between.
+	\item \textbf{Garbage collection}: Detect data objects that cannot be used by the program in the future, and free its occupied resources.
+	\item Always \texttt{free} allocated memory
 	\begin{cpp}
-int *p = (int*) malloc ( sizeof(int) * n );
-//Put code here..
+int *p = (int*) malloc (sizeof(int) * n);
+// do stuff
 free (p);
 	\end{cpp}
-	\item Never use allocated pointer for doing stuff. Instead use a copy and use that in code. Copy the pointer...
+
+    It is good practice to never change the allocated pointer. Instead use a copy for doing stuff so you can always free the memory.
 	\begin{cpp}
-int *p_allocated = (int*) malloc ( sizeof(int) * n );
+int *p_allocated = (int*) malloc (sizeof(int) * n);
 int *p_copy = p_allocated;
 // do your stuff with p_copy, not with p_allocated!
 // e.g.:
