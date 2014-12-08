@@ -4,39 +4,43 @@
 %%% End:
 
 \subsection*{Week 6 - Processes}
-\textbf{intro}
+\subsubsection*{intro}
 \begin{itemize}
 \item What does a program use during its lifetime?
-\begin{itemize}
-\item Hint: what does a program need to execute?
+  \begin{itemize}
+  \item Hint: what does a program need to execute?
+  \end{itemize}
 \end{itemize}
-\end{itemize}
-\\
-\textbf{Buzz: What is a system call}
-\\
+
+\subsubsection*{Buzz: What is a system call}
+
 \textbf{System Calls}
+
 \begin{itemize}
 \item Programming interface to the sercices proided by the OS.
-\begin{itemize}
-\item Processes $\rightarrow$ the operating system
-\end{itemize}
+  \begin{itemize}
+  \item Processes $\rightarrow$ the operating system
+  \end{itemize}
 \item Mostly accessed by programs via a higlh-level Application Program Interface (API) rather than direct system call use.
-\item Three most common APIs are Win32 API for windows, POISX API for POISX API for POISX-Based systems (includi´ng virtually all versions of UNIX, Linux, and Mac OS X), and Java API for the Java virtual machine (JVM).
+\item Three most common APIs are Win32 API for windows, POISX API for POISX API for POISX-Based systems (including virtually all versions of UNIX, Linux, and Mac OS X), and Java API for the Java virtual machine (JVM).
 \end{itemize}
-\\
+
 \textbf{How Are system calls implemented?}
+
 \begin{itemize}
 \item What are the steps in executing a system call?
 \item How are parameters to system calls passed to the operating system?
 \item Does the type and organization of the operating system matter?
 \item Draw a figure to help you.
 \end{itemize}
+
 \textbf{System Call Implementation}
+
 \begin{itemize}
 \item Typically, a number associated with each system call.
 \item The system call interface invokes intended system call in OS kernel and returns status of the system call and any return values.
-The caller need know nothing about how the systemm call is implemented.
-\begin{itemize}
-\item Just needs to obay API and understand what the OS will do
-\end{itemize}
+  The caller need know nothing about how the systemm call is implemented.
+  \begin{itemize}
+  \item Just needs to obay API and understand what the OS will do
+  \end{itemize}
 \end{itemize}
