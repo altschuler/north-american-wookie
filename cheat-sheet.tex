@@ -60,25 +60,10 @@
 \emph{1. You can list and describe three source code transformations the compiler can perform to achieve higher performance.}
 
 \begin{enumerate}
-\item \textbf{Loop optimization}: Move loop-invariant variables outside the loop.
-
-\item \textbf{Dead code elimination}
-
-\item \textbf{Common subexpression elimination}: $(x + y) / 3.0 - (x + y)\rightarrow temp = y+x;\;\; temp/3.0-temp$
-
-\item \textbf{Jump threading} when one jump directly to a second jump. If the second condition is a subset or inverse of the first, it can be eliminated, or threaded through the first jump.
-  \begin{assembly}
-10. a = SomeNumber();
-20. IF a > 10 GOTO 50
-...
-50. IF a > 0 GOTO 100
-...
-  \end{assembly}
-  Here the first jump can safely be modified to jump directly to line 100, as it the condition will always be true.
-
-\item \textbf{Instruction scheduling}: improve instruction-level parallelism. ``Simply'' put, avoid \emph{pipeline stalls} by rearranging the order of instructions. Pipeline stalls can be caused by structural hazards (processor resource limit), data hazards (output of one instruction needed by another instruction) and control hazards (branching).
-
-\item Replacing instructions with more efficient ones. For instance, x = x * 2 is likely faster performed by bitshifting
+	\item Loop-optimization: Move loop-invariant variables outside the loop.
+	\item Dead code removal.
+	\item Subexpression elimination: $(x + y) / 3.0 - (x + y)\rightarrow temp = y+x;\;\; temp/3.0-temp$
+	\item Replacing instructions with more efficient ones. For instance, x = x * 2 is likely faster performed by bitshifting
 \end{enumerate}
 
 Primarily optimizing either for (run) time or for space.
@@ -115,8 +100,8 @@ Automating common tasks as:
 \begin{enumerate}
 	\item Source file(s) are handled by the preprocessor, which turn them into \textbf{translation units}:
 	\begin{itemize}
-		\item The preprocesser recursively includes files marked by \texttt{\#include}
-		\item The preprocesser expands macros such as \texttt{\#if}, \texttt{\#define}, \texttt{\#ifdef}
+		\item The preprocesser recursively includes files marked by \#include
+		\item The preprocesser expands macros such as \#if, \#define, \#ifdef
 	\end{itemize}
 	Translation units consists of declarations and definitions.
 	\item Each translation unit is then \emph{compiled} into object files
@@ -212,7 +197,7 @@ Operates in \textbf{cycles}:
 \textbf{Word size} - Modern PCs use a word-size of 64 bits. Embedded systems using microcontrollers often have a smaller word size (modern ones have down to 8 bit)
 
 \subsection{Register}
-A processor register is a small amount of storage available as part of a digital processor, such as a CPU. Such registers are (typically) addressed by mechanisms other than main memory and can be accessed faster.
+A processor register is a small amount of storage available as part of a digital processor, such as a CPU. Such registers are (typically) addressed by mechanisms other than main memory and can be accessed faster. 
 
 
 \begin{figure}[H]
@@ -234,10 +219,10 @@ In modern CPU'S there are typically two layers of caches, L1 and L2. L1 cache is
 On multicore chips, the placement of the L2 cache can vary. A single L2 cache can be shared by all the cores (intel).  This requires a more complicated cache controller. Another design is to gice every core  its own L2 cache (AMD). This is difficult to keep consistent.
 
 \subsubsection{Cache cohorence}
-A protocol for managing the caches of a multiprocessor system so that no data is lost or overwritten before the data is transferred from a cache to the target memory.
+A protocol for managing the caches of a multiprocessor system so that no data is lost or overwritten before the data is transferred from a cache to the target memory. 
 
 
-When multiple processors with separate caches share a common memory, it is necessary to keep the caches in a state of coherence by ensuring that any shared operand that is changed in any cache is changed throughout the entire system. This is done in either of two ways:
+When multiple processors with separate caches share a common memory, it is necessary to keep the caches in a state of coherence by ensuring that any shared operand that is changed in any cache is changed throughout the entire system. This is done in either of two ways: 
 
 through a directory-based or a snooping system. In a directory-based system, the data being shared is placed in a common directory that maintains the coherence between caches. The directory acts as a filter through which the processor must ask permission to load an entry from the primary memory to its cache. When an entry is changed the directory either updates or invalidates the other caches with that entry. In a snooping system, all caches on the bus monitor (or snoop) the bus to determine if they have a copy of the block of data that is requested on the bus. Every cache has a copy of the sharing status of every block of physical memory it has.
 Cache misses and memory traffic due to shared data blocks limit the performance of parallel computing in multiprocessor computers or systems. Cache coherence aims to solve the problems associated with sharing data.
@@ -532,7 +517,7 @@ A storage class defines the scope and accesibility of defined variables.
 \begin{description}
 	\item[const] means that the variable may not be changed during the lifetime of the program.
 	\item[volatile] means that the compiler is not allowed to optimize the usage of the variable.
-	\item[restrict] ... something with pointer-accessing, and allows for better optimizations.
+	\item[restrict] ... something with pointer-accessing, and allows for better optimizations. 
 \end{description}
 
 

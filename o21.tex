@@ -22,4 +22,17 @@ If shared variables, operations need to be \emph{synchronized}.
 &\texttt{x = x + 1} &\texttt{x = 3}
 \end{align*}
 
-The final value of \texttt{x} can be 0 or 3.
+Due to the various possible interleavings, the final value of \texttt{x} can be 1, 3 or 4.
+
+
+
+\subsection{Example with atomic statements}
+\begin{align*}
+\texttt{int x = 0;} \\ \\
+&\textbf{P}_1 &\textbf{P}_2 \\
+&\big \langle \texttt{x = x + 1} \big \rangle &\texttt{x = 3}
+\end{align*}
+
+As the two processes can only be executed sequentially now, the possible final values of \texttt{x} are 3 or 4.
+
+
