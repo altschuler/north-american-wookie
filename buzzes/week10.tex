@@ -1,0 +1,78 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "cheat-sheet"
+%%% End:
+
+\subsubsection*{Thread and process synchronization}
+\textbf{Design a Cut'n'Paste buffer}
+Message passing is commonly used to communicate between desktop applications. Breifly outline how a program could use message passing to interact with the cut-and-paste buffer. The cut-and-paste buffer allows user to copy text and other data from one application to another.\\
+
+\textbf{Window manager}
+Outline the communication between a window manager and an application when:
+\begin{itemize}
+\item window contents are refreshed
+\item the application is moving a window
+\item the user is resizing a window via a widget
+\item provide pseudo code
+\end{itemize}
+
+\textbf{Buzz}
+\begin{itemize}
+\item Assume two entities
+\item one put in interest into your bank account
+\begin{itemize}
+\item Read total
+\item Increment total with intrest
+\item write total
+\end{itemize}
+\item The other is you doing a withdrawal
+\begin{itemize}
+\item Read total
+\item Decrease with withdrawal amount
+\item Write total
+\end{itemize}
+\end{itemize}
+What is your total? are you happy with that?\\
+How can you fix this?\\
+%Todo
+\textbf{Atomic actions}
+\begin{itemize}
+\item Semaphore up and down are implemented as atomic actions
+\item Atomic actions are indivisible
+\begin{itemize}
+\item They either run completely or not at all
+\end{itemize}
+\item Preemptive scheduling makes it impossible to implement atomic actions using ordonary instructions
+\begin{itemize}
+\item Can preempted at any point
+\item What can we do about that?
+\end{itemize}
+\end{itemize}
+\textbf{Bank example with CAS!}
+\begin{itemize}
+\item Assume two entities
+\item one put in interest into your bank account
+\begin{itemize}
+\item Read total
+\item Increment total with intrest
+\item write total
+\end{itemize}
+\item The other is you doing a withdrawal
+\begin{itemize}
+\item Read total
+\item Decrease with withdrawal amount
+\item Write total
+\end{itemize}
+\end{itemize}
+\begin{cpp}
+int buffer_index;
+int tmp_index;
+do {
+int new_index;
+tmp_index=buffer index;
+if(tmp_index>53)
+ new_index=4;
+else
+ new_index=tmp_index+1;
+ } while(tmp_index!=CAS(&buffer_index, tmp_index, new_index));
+\end{cpp}
