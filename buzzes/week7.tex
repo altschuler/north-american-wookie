@@ -5,15 +5,18 @@
 
 \subsubsection*{Forms of scheduling}
 One form of scheduling is to map threads, and hence processes, to CPUs.
+(What Simon was trying to express here, is to map process \# 1 to CPU \# 1, process \# 2 to CPU \# 2, etc.)
 
 What are other forms?
 
-\subsubsection*{How do you do a context switch?}
 
+
+\subsubsection*{How do you do a context switch?}
+Store registers, including stack pointer and instruction pointer, so that the execution of the thread can be continued later on.
 
 \subsubsection*{Bonus: Fragmentation}
 \begin{description}
-\item[External Fragmentation]: total memory space exists to satisfy a request, but it is not contiguous
+\item[External Fragmentation]: total memory space exists to satisfy a request, but it is not contiguous (in other words: it is fragmented)
 \item[Internal Fragmentation]: allocated memory block may be slightly larger than requested memory
 \end{description}
 Fragmentation \texttt{will} happen

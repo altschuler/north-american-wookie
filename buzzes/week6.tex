@@ -31,25 +31,28 @@ See previous answer.
 \begin{itemize}
 \item What are the steps in executing a system call?
 \item How are parameters to system calls passed to the operating system?
-\item Does the type and organization of the operating system matter?
+\item Does the type and organization of the operating system matter? (If you have an OS without distinction between kernel/user-mode, you don't perform context switches for example)
 \item Draw a figure to help you.
 \end{itemize}
 
 \paragraph{Answer}
-Execution
+What are the steps in executing a system call?
+
 \begin{enumerate}
-  \item Set registers to system call arguments and ID (\texttt{EAX})
+  \item Set registers to system call arguments and store the system call ID in the (\texttt{EAX}) register
   \item Execute interrupt
-  \item Enter kernel-mode
+  \item Perform context switch and enter kernel-mode
   \item Look-up system call and execute
-  \item TODO: continue patty
+  \item Return result of sys-call (probably save in a relevant register)
+  \item Context switch back to user mode
+  \item Continue original execution
 \end{enumerate}
 
 \begin{itemize}
   \item Typically, a number associated with each system call.
   \item The system call interface invokes intended system call in OS kernel and returns status of the system call and any return values.
-  The caller need know nothing about how the systemm call is implemented.
+  The caller need know nothing about how the system call is implemented.
   \begin{itemize}
-    \item Just needs to obay API and understand what the OS will do
+    \item Just needs to obey API and understand what the OS will do
   \end{itemize}
 \end{itemize}
